@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: leaderboard
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+  
+volumes:
+  postgres_data:
