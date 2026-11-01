@@ -35,7 +35,6 @@ export default function Timer({ timeProp, activeProp, setActiveProp }: TimerProp
       <p className="text-4xl font-bold tabular-nums">{time.toFixed(1)} s</p>
       <Progress
         value={((timeProp - time) / timeProp) * 100}
-        aria-label="Tiempo transcurrido"
       />
     </div>
   );
